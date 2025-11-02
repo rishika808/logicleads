@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logiclead FASTag</title>
+  <link rel="stylesheet" href="leads.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+ body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #eef7ff;
+    }
+
+    .faq-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .faq-section h2 {
+      color: #002c77;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .faq-subtitle {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .faq-item.active {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 18px 22px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0047ab;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: #eaf3ff;
+    }
+
+    /* --- FIXED STYLES BELOW --- */
+    .faq-answer {
+      background: #f9fcff;
+      color: #333;
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0 22px;
+      transition: all 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 15px 22px;
+      max-height: 500px; /* enough for long answers */
+      opacity: 1;
+    }
+  </style>
+<body>
+  <header class="header-tagline">
+    <div class="top-bar">
+      <div class="logo">
+        <i class="fa-solid fa-car"></i> Logiclead
+      </div>
+
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="recharge.html">Recharge</a>
+        <a href="offers.html">Offers</a>
+        <a href="payment.html">Payment</a>
+     
+      </nav>
+
+      <div class="header-right">
+        <button class="wallet-btn"><i class="fa-solid fa-wallet"></i> Wallet</button>
+        <div class="user-icon">
+          <i class="fa-regular fa-circle-user"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-bar">
+      <p>⚡ Fast, Secure & Reliable FASTag Recharge — Save ₹50 on every top-up!</p>
+    </div>
+  </header>
+
+   <div id="loginModal" class="login-modal">
+    <div class="login-box">
+      <span class="close-btn" onclick="closeLogin()">&times;</span>
+      <h2><i class="fa-solid fa-car"></i> Logiclead Login</h2>
+      <p class="subtitle">Access your FASTag dashboard</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="email" placeholder="Email or Mobile Number" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="extra-links">
+        <a href="#">Forgot Password?</a> |
+        <a href="#">Create Account</a>
+      </div>
+    </div>
+  </div>
+   <section class="hero">
+    <div class="hero-text">
+      <h1>FASTag Recharge<br><span>Made Simple & Secure</span></h1>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i> Instant Recharge in Seconds</li>
+        <li><i class="fa-solid fa-tags"></i> Exclusive Cashback Offers</li>
+        <li><i class="fa-solid fa-headset"></i> 24×7 Customer Support</li>
+      </ul>
+      <button class="cta">Recharge Now</button>
+    </div>
+
+    <div class="recharge-card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-bolt"></i> FASTag Recharge</h3>
+        <img src="images/bbps-new-2.png" alt="Bharat Connect" />
+      </div>
+      <div class="card-body">
+        <input type="text" placeholder="Enter Vehicle Number">
+        <button>Proceed</button>
+        <p><i class="fa-solid fa-lightning"></i> Get the best deals on FASTag recharge</p>
+      </div>
+    </div>
+  </section>
+
+
+ <section class="offer-banner">
+    <div class="offer-text">
+      <h3>Grab exciting savings on travel must-haves!</h3>
+      <h1>Flat <span>₹50 OFF</span> on Recharge</h1>
+      <div class="coupon-box">
+        <p>Apply Code <strong>EXTRA50</strong> Today.</p>
+      </div>
+    </div>
+    <div class="offer-image">
+      <img src="images/images.jpg" alt="Highway">
+    </div>
+  </section>
+
+   <section class="provider-section">
+    <div class="provider-header">
+      <h2>Choose Your FASTag Provider</h2>
+      <p>Select your issuing bank or wallet to recharge your FASTag instantly.</p>
+      <input type="text" id="searchBox" placeholder="🔍 Search your provider...">
+    </div>
+
+    <div class="provider-grid" id="providerGrid">
+      <!-- Each provider card -->
+      <div class="provider-card"><img src="images/3d0764bf519e0ae62a43f818f832ca11.jpg"><p>HDFC Bank</p></div>
+      <div class="provider-card"><img src="images/download (1).jpg"><p>ICICI Bank</p></div>
+      <div class="provider-card"><img src="images/76aabd7ec028d2927d5af281e82d9394.jpg"><p>Axis Bank</p></div>
+      <div class="provider-card"><img src="images/0986338cc1bd9659da9133bb4fc783a6.jpg"><p>State Bank of India</p></div>
+      <div class="provider-card"><img src="images/3adb17ad584e31a26d7f1119beb26c86.jpg"><p>Kotak Mahindra Bank</p></div>
+      <div class="provider-card"><img src="images/8c6219ff367beac5f2730160a41aa897.jpg"><p>Paytm Payments Bank</p></div>
+      <div class="provider-card"><img src="images/672b816d9405e17417c090fbb406ea6e.jpg"><p>UCO Bank</p></div>
+      <div class="provider-card"><img src="images/2a4242814a0f7cc956fc2d14c1c4af2c.jpg"><p>Federal Bank</p></div>
+      <div class="provider-card"><img src="images/c1ef2e91b95eac43bc00afbd580d23a3.jpg"><p>Canara Bank</p></div>
+      <div class="provider-card"><img src="images/2dad745c5f2fdd1f341fd31ef4937a50.jpg"><p>IDFC FIRST Bank</p></div>
+      <div class="provider-card"><img src="images/7fb9c4ae317ff5a843b86d86042f6597.jpg"><p>IndusInd Bank</p></div>
+      <div class="provider-card"><img src="images/eb55d100ee42369d2e984e3cb4758c76.jpg"><p>Bank of Baroda</p></div>
+      <div class="provider-card"><img src="images/6efb93f54538ebaf6c5251bc7a42713c.jpg"><p>IDBI Bank</p></div>
+      <div class="provider-card"><img src="images/97a2e9a37d151bf1729b96678a88e292.jpg"><p>Indian Overseas Bank</p></div>
+      <div class="provider-card"><img src="images/55ba49c0871bbcfa6729799e4cdb466d.jpg"><p>Jammu and Kashmir Bank</p></div>
+      <div class="provider-card"><img src="images/15.jpg"><p>Karnataka Bank</p></div>
+      <div class="provider-card"><img src="images/51c53153e4a1ab4b735c213e62d7733f.jpg"><p>Equitas Bank</p></div>
+      <div class="provider-card"><img src="images/1fd5be4d78777be064c80de62fda8136.jpg"><p>Bank of Maharashtra</p></div>
+      <div class="provider-card"><img src="images/66b5169c89ca2c55173cc4f3580418d1.jpg"><p>Indian Bank</p></div>
+      <div class="provider-card"><img src="images/b037d11999aed70e83657233c18675f6.jpg"><p>South Indian Bank</p></div>
+      <div class="provider-card"><img src="images/18.png"><p>Union Bank of India</p></div>
+      <div class="provider-card"><img src="images/1.webp"><p>Airtel Payments Bank</p></div>
+      <div class="provider-card"><img src="images/20.webp"><p>AU Small Finance Bank</p></div>
+      <div class="provider-card"><img src="images/4ae8ee4f8f839bab7ceb8501e4555763.jpg"><p>Bandhan Bank</p></div>
+      
+     
+     
+      <div class="provider-card"><img src="images/IHMCL-Logo.jpeg"><p>Indian Highways FASTag (IHCL)</p></div>
+    </div>
+  </section>
+
+   <section class="about-section">
+  <div class="about-container">
+    <div class="about-content">
+      <h2>About <span>Logiclead</span></h2>
+      <p class="tagline">Empowering faster, smarter, and hassle-free highway travel.</p>
+      <p>
+        Welcome to <strong>Logiclead</strong> — your trusted partner for FASTag recharge.
+        We simplify your journey by providing quick, secure, and reliable recharge options for all major banks and wallets.
+      </p>
+      <p>
+        Our mission is to make highway travel seamless with instant recharges, real-time tracking, and multi-bank support — all in one place.
+      </p>
+      <div class="about-features">
+        <div class="feature">
+          <i class="fa-solid fa-bolt"></i>
+          <h4>Instant Recharge</h4>
+          <p>Recharge your FASTag in seconds, anytime, anywhere.</p>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Secure Payments</h4>
+          <p>100% secure transactions with trusted payment gateways.</p>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-road"></i>
+          <h4>Nationwide Coverage</h4>
+          <p>Accepted across all major national highways.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-image">
+      <img src="images/mactc8ig_fastag_625x300_17_February_25.jpg" alt="FASTag Recharge" />
+    </div>
+  </div>
+</section>
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-subtitle">Find quick answers to common FASTag queries</p>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">❓ What is FASTag?</button>
+      <div class="faq-answer">
+        FASTag is a prepaid tag affixed to your vehicle’s windshield that enables automatic toll payment at toll plazas using RFID technology.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">⚡ How can I recharge my FASTag on Logiclead?</button>
+      <div class="faq-answer">
+        Simply enter your vehicle number, choose your bank, and make payment through UPI, debit card, or net banking to recharge instantly.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">💳 What payment methods are accepted?</button>
+      <div class="faq-answer">
+        Logiclead supports UPI, debit/credit cards, net banking, and popular digital wallets.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">💰 Is there any minimum recharge amount?</button>
+      <div class="faq-answer">
+        Yes, the minimum recharge amount depends on the issuing bank, but on Logiclead, you can start from as low as ₹100.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">⏱️ How long does it take for the recharge to reflect?</button>
+      <div class="faq-answer">
+        Recharges are usually credited instantly, but in rare cases, it may take up to 30 minutes depending on the bank network.
+      </div>
+    </div>
+  </div>
+</section>
+<section class="fastag-hero">
+  <div class="dashboard">
+    <div class="card">
+      <div class="chip"></div>
+      <h3>FASTag</h3>
+      <p>Linked Vehicle: DL 19 ES 9XXX</p>
+      <span class="balance">Balance: ₹450.00</span>
+    </div>
+
+    <div class="actions">
+      <h2>Manage Your FASTag</h2>
+      <p>Recharge, check balance, and enjoy seamless toll payments instantly with Logiclead.</p>
+      <button class="recharge-btn">Recharge Now</button>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="images/logic_img2 (1).png" alt="Logiclead Logo" />
+      <p>Smart FASTag management and toll payment solutions.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Recharge</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>📧 ops@logiclead.in</p>
+      <p>📧 tech@logiclead.in</p>
+      <p>📍 Office No 15, Ground Floor, D-29, Sector 3, Noida</p>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Logiclead. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a2e0e6c42a.js" crossorigin="anonymous"></script>
+
+    <script>
+    // When "Proceed" is clicked
+    document.getElementById("proceedBtn").addEventListener("click", function() {
+      const vehicleNumber = document.getElementById("vehicleNumber").value.trim();
+
+      if (vehicleNumber === "") {
+        alert("⚠️ Please enter a valid vehicle number.");
+        return;
+      }
+
+      // Save vehicle number to localStorage
+      localStorage.setItem("vehicleNumber", vehicleNumber);
+
+      // Redirect to payment page
+      window.location.href = "payment.html";
+    });
+        // Open login modal
+  
+  </script>
+
+  <script src="leads.js"></script>
+</body>
+</html>

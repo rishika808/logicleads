@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logiclead FASTag Recharge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="recharge.css" />
+</head>
+<body>
+
+  <!-- Header -->
+    <header class="header-tagline">
+    <div class="top-bar">
+      <div class="logo">
+        <i class="fa-solid fa-car"></i> Logiclead
+      </div>
+
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="recharge.html">Recharge</a>
+        <a href="offers.html">Offers</a>
+        <a href="payment.html">Payment</a>
+     
+      </nav>
+
+      <div class="header-right">
+        <button class="wallet-btn"><i class="fa-solid fa-wallet"></i> Wallet</button>
+        <div class="user-icon">
+          <i class="fa-regular fa-circle-user"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-bar">
+      <p>⚡ Fast, Secure & Reliable FASTag Recharge — Save ₹50 on every top-up!</p>
+    </div>
+  </header>
+  <div id="loginModal" class="login-modal">
+    <div class="login-box">
+      <span class="close-btn" onclick="closeLogin()">&times;</span>
+      <h2><i class="fa-solid fa-car"></i> Logiclead Login</h2>
+      <p class="subtitle">Access your FASTag dashboard</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="email" placeholder="Email or Mobile Number" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="extra-links">
+        <a href="#">Forgot Password?</a> |
+        <a href="#">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recharge Section -->
+  <section class="recharge-section">
+    <div class="recharge-card">
+      <h2>Recharge Your FASTag Instantly ⚡</h2>
+      <p>Enter your vehicle details and recharge your FASTag in seconds.</p>
+
+      <form class="recharge-form">
+        <label for="vehicle-number">Vehicle Number</label>
+        <input type="text" id="vehicle-number" placeholder="e.g. MH12AB1234" required />
+
+        <label for="bank">Select Bank</label>
+        <select id="bank" required>
+          <option value="">-- Choose Bank --</option>
+          <option>HDFC Bank FASTag</option>
+          <option>ICICI Bank FASTag</option>
+          <option>Axis Bank FASTag</option>
+          <option>SBI FASTag</option>
+          <option>Paytm Payments Bank FASTag</option>
+        </select>
+
+        <label for="amount">Recharge Amount (₹)</label>
+        <input type="number" id="amount" min="100" placeholder="Enter amount (min ₹100)" required />
+
+        <button type="submit" class="recharge-btn">Proceed to Pay</button>
+      </form>
+    </div>
+
+    <div class="recharge-illustration">
+      <img src="images/641be8bb-b29b-4e80-833a-58188d43db6a-cover.png" alt="FASTag Illustration" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h3>Why Choose Logiclead FASTag Recharge?</h3>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <i class="fa-solid fa-bolt"></i>
+        <h4>Instant Recharge</h4>
+        <p>Recharge your FASTag instantly — no delays or waiting time.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-lock"></i>
+        <h4>100% Secure Payments</h4>
+        <p>Your transactions are fully encrypted and bank-verified.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-wallet"></i>
+        <h4>Multiple Payment Options</h4>
+        <p>Pay via UPI, debit/credit cards, or net banking seamlessly.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-headset"></i>
+        <h4>24×7 Support</h4>
+        <p>Our team is always available to help you resolve issues quickly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="images/logic_img2 (1).png" alt="Logiclead Logo" />
+        <p>Smart FASTag management and toll payment solutions.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Recharge</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>📧 ops@logiclead.in</p>
+        <p>📧 tech@logiclead.in</p>
+        <p>📍 Sector 3, Noida, Uttar Pradesh</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Logiclead. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+    // When "Proceed" is clicked
+    document.getElementById("proceedBtn").addEventListener("click", function() {
+      const vehicleNumber = document.getElementById("vehicleNumber").value.trim();
+
+      if (vehicleNumber === "") {
+        alert("⚠️ Please enter a valid vehicle number.");
+        return;
+      }
+
+      // Save vehicle number to localStorage
+      localStorage.setItem("vehicleNumber", vehicleNumber);
+
+      // Redirect to payment page
+      window.location.href = "payment.html";
+    });
+    
+  </script>
+  <script src="recharge.js"></script>
+
+</body>
+</html>

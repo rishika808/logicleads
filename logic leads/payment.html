@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FASTag Payment | Logiclead</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f9fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .payment-container {
+      background: white;
+      width: 400px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .payment-container h2 {
+      color: #003049;
+      margin-bottom: 10px;
+    }
+
+    .vehicle-box {
+      background: #f0f9f8;
+      border: 1px solid #00a896;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .amount-section {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .amount-section label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .amount-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .payment-methods {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .payment-methods label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+
+    .pay-btn {
+      width: 100%;
+      padding: 12px;
+      background: #00a896;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pay-btn:hover {
+      background: #028174;
+    }
+
+    .success-message {
+      display: none;
+      color: green;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>FASTag Recharge Payment</h2>
+    <p>Your Vehicle Number</p>
+    <div class="vehicle-box" id="vehicleDisplay">Loading...</div>
+
+    <div class="amount-section">
+      <label for="amount">Enter Recharge Amount (₹)</label>
+      <input type="number" id="amount" class="amount-input" placeholder="Enter amount (e.g. 500)">
+    </div>
+
+    <div class="payment-methods">
+      <label><input type="radio" name="method" value="UPI"> 💸 UPI</label>
+      <label><input type="radio" name="method" value="Card"> 💳 Credit / Debit Card</label>
+      <label><input type="radio" name="method" value="Netbanking"> 🏦 Netbanking</label>
+    </div>
+
+    <button class="pay-btn" id="payBtn">Pay Now</button>
+    <div class="success-message" id="successMsg">✅ Payment Successful!</div>
+  </div>
+
+  <script>
+    // Load vehicle number from localStorage
+    const vehicle = localStorage.getItem("vehicleNumber");
+    const vehicleDisplay = document.getElementById("vehicleDisplay");
+
+    if (vehicle) {
+      vehicleDisplay.textContent = vehicle;
+    } else {
+      vehicleDisplay.textContent = "Not Available";
+    }
+
+    // Handle Payment
+    const payBtn = document.getElementById("payBtn");
+    const successMsg = document.getElementById("successMsg");
+
+    payBtn.addEventListener("click", () => {
+      const amount = document.getElementById("amount").value;
+      const method = document.querySelector('input[name="method"]:checked');
+
+      if (!amount || amount < 100) {
+        alert("⚠️ Please enter a valid amount (minimum ₹100).");
+        return;
+      }
+
+      if (!method) {
+        alert("⚠️ Please select a payment method.");
+        return;
+      }
+
+      // Simulate Payment Success
+      successMsg.style.display = "block";
+      successMsg.textContent = `✅ ₹${amount} recharge for ${vehicle} done successfully via ${method.value}!`;
+
+      // Clear storage after payment (optional)
+      localStorage.removeItem("vehicleNumber");
+    });
+  </script>
+
+</body>
+</html>

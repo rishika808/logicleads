@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="offers.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="header-tagline">
+    <div class="top-bar">
+      <div class="logo">
+        <i class="fa-solid fa-car"></i> Logiclead
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="recharge.html">Recharge</a>
+        <a href="offers.html">Offers</a>
+        <a href="payment.html">Payment</a>
+      
+      </nav>
+
+      <div class="header-right">
+        <button class="wallet-btn"><i class="fa-solid fa-wallet"></i> Wallet</button>
+        <div class="user-icon">
+          <i class="fa-regular fa-circle-user"></i>
+        </div>
+      </div>
+    </div>
+     <div class="sub-bar">
+      <p>⚡ Fast, Secure & Reliable FASTag Recharge — Save ₹50 on every top-up!</p>
+    </div>
+  </header>
+
+  <div id="loginModal" class="login-modal">
+    <div class="login-box">
+      <span class="close-btn" onclick="closeLogin()">&times;</span>
+      <h2><i class="fa-solid fa-car"></i> Logiclead Login</h2>
+      <p class="subtitle">Access your FASTag dashboard</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="email" placeholder="Email or Mobile Number" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="extra-links">
+        <a href="#">Forgot Password?</a> |
+        <a href="#">Create Account</a>
+      </div>
+    </div>
+  </div>
+   
+ <section class="modern-offers" id="offers">
+    <div class="offers-header">
+      <h2><i class="fa-solid fa-gift"></i> Trending Offers & Rewards</h2>
+      <p>Recharge your FASTag and enjoy exclusive rewards, cashback, and referral bonuses.</p>
+    </div>
+
+    <div class="offers-grid">
+      <!-- Offer 1 -->
+      <div class="offer-box">
+        <div class="offer-badge">🔥 Limited Time</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Cashback" class="offer-img">
+        <h3>10% UPI Cashback</h3>
+        <p>Get instant 10% cashback on your first FASTag recharge using any UPI app.</p>
+        <button class="offer-btn">Apply Offer</button>
+      </div>
+
+      <!-- Offer 2 -->
+      <div class="offer-box">
+        <div class="offer-badge green">💸 Flat ₹50 Bonus</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135673.png" alt="Bonus" class="offer-img">
+        <h3>Recharge & Earn Bonus</h3>
+        <p>Recharge above ₹500 and get an extra ₹50 credited instantly to your wallet.</p>
+        <button class="offer-btn">Recharge Now</button>
+      </div>
+
+      <!-- Offer 3 -->
+      <div class="offer-box">
+        <div class="offer-badge blue">🎁 Refer & Earn</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3225/3225193.png" alt="Refer" class="offer-img">
+        <h3>Invite Friends & Earn ₹100</h3>
+        <p>Invite your friends to use Logiclead FASTag and earn ₹100 for each referral.</p>
+        <button class="offer-btn">Refer Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Logiclead FASTag | All Rights Reserved
+  </footer>
+
+
+  <script src="offers.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0e6c42a.js" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
